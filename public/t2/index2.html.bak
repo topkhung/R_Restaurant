@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>ครัวหนัก</title>
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap-duallistbox.css">
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/jquery.bootstrap-duallistbox.js"></script>
+	<!-- <script src="/socket.io/socket.io.js"></script>  -->
+
+</head>
+
+<body>
+<div style="font-size: 50px;"><center>ครัวหนัก</center></div></div><br>
+<center>
+<div style="font-size: 30px;">
+  <div>
+    <select multiple="multiple" size="10" name="duallistbox_demo2" class="demo2" title="duallistbox_demo2">
+      <option value="option1" style="font-size: 10px; border-style: solid;border=2px;"><table><tr><td>Option 1</td><td style="font-size: 15px;">Option 11</td></tr></table></option>
+      <option value="option2">Option 2</option>
+      <option value="option3">Option 3</option>
+      <option value="option4">Option 4</option>
+      <option value="option5">Option 5</option>
+      <option value="option6">Option 6</option>
+      <option value="option7">Option 7</option>
+      <option value="option8">Option 8</option>
+      <option value="option9">Option 9</option>
+      <option value="option0">Option 10</option>
+      <option value="option0">Option 11</option>
+      <option value="option0">Option 12</option>
+      <option value="option0">Option 13</option>
+      <option value="option0">Option 14</option>
+      <option value="option0">Option 15</option>
+      <option value="option0">Option 16</option>
+      <option value="option0">Option 17</option>
+      <option value="option0">Option 18</option>
+      <option value="option0">Option 19</option>
+      <option value="option0">Option 20</option>
+    </select>
+    <button id="demo2-add" type="button" class="btn btn-primary">Add options to demo2</button>
+    <script>
+      var demo2 = $('.demo2').bootstrapDualListbox({
+        nonSelectedListLabel: 'สิ่งที่ต้องทำ',
+        selectedListLabel: 'กำลังทำ',
+        preserveSelectionOnMove: 'moved',
+        moveOnSelect: false,
+        showFilterInputs: false,  
+        infoText: 'จำนวนรายการทั้งหมด {0}',
+        infoTextEmpty: 'ไม่มีรายการ',                                                      // string, sets the text for the "Remove All" button
+      });
+
+      $("#demo2-add").click(function() {
+      	console.log('click');
+	    demo2.append('<option value="apples">Apples</option><option value="oranges" selected>Oranges</option>');
+	    demo2.bootstrapDualListbox('refresh', true);
+	  });
+    </script>
+  </div>
+</div>
+</center>
+</body>
+</html>

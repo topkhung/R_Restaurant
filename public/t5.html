@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>っ亚斯选</title>
+
+  <meta content="text/html; charset=UTF-8">
+  <link rel="stylesheet" type="text/css" href="./css/bala.DualSelectList.css">
+  <script type="text/javascript" src="./jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="./js/bala.DualSelectList.jquery.js"></script>
+  <script src="/socket.io/socket.io.js"></script>  
+  <script type="text/javascript">
+    $(document).ready(function(){
+      var dsl = $('#dualSelect').DualSelectList({
+        'candidateItems' : ['Item 01', 'Item 02', 'Item 03', 'Item 04', 'Item 05', 'Item 06', 'Item 07', 'Item 10', 'Item 11', 'Item 12', 'Item 13'],
+        'selectionItems' : ['Item 08', 'Item 09', 'Item 03'],
+        'colors' : {
+          'itemText' : 'black',
+          'itemBackground' : 'rgb(255, 255, 255)',
+          'itemHoverBackground' : '#bbbbbb'
+        }
+      });
+
+      $('#getSel').click(function(){
+        var res = dsl.getSelection();
+        var str = '';
+        for (var n=0; n<res.length; ++n) str += res[n] + '\n';
+        $('#selResult').val(str);
+      });
+
+      $('#addSel').click(function(){
+        var items = $('#addIterms').val().split('\n');
+        var res = dsl.setCandidate(items);
+        $('#addIterms').val('');
+      });
+
+      var socket = io.connect('/');
+      socket.on('menu', function(data) {
+          console.log('time:', data.message);
+          var items = data.message.split('\n');;
+          var res = dsl.setCandidate(items);
+      });
+
+    }); 
+
+  </script> 
+</head>
+
+<body>
+  <div style="font-size: 40px;"><center> っ亚斯选</center></div></div><br>
+  <div id="dualSelect" style="width:100%; height:400px; background-color:#F0F0F0; "></div><br>
+
+
+</body>
+
+</html>

@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>ครัวหนัก</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+  <!-- <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css"> -->
+<!--===============================================================================================-->
+  <!-- <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css"> -->
+<!--===============================================================================================-->
+  <!-- <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css"> -->
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="css/util.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+  <script src="/socket.io/socket.io.js"></script>  
+<!--   <style type="text/css">
+    .table {
+      height:100%;
+      /*border: 3px solid blue;
+      outline: 3px solid darkblue;*/
+    }
+  </style> -->
+</head>
+<body >
+  <div style="background-color:lightblue"><center><font size="40">ครัวหนัก</font></center></div>
+  <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+
+            <table class="table">
+              <thead bgcolor="#cccccc">
+                <tr class="row100 head">
+                  <th class="cell100 column1">Order ID</th>
+                  <th class="cell100 column2">รายการ</th>
+                  <th class="cell100 column3">โต๊ะ</th>
+                  <th class="cell100 column4">จำนวน</th>
+                  <th class="cell100 column5">เวลา</th>
+                  <th class="cell100 column6">Set</th>
+                </tr>
+              </thead>
+            </table>
+          
+
+          <div class="table100-body js-pscroll">
+            <table class="table" id="table1">
+              <tbody>
+                <tr class="row100 body" tabindex="0">
+                  <td class="cell100 column1">1</td>
+                  <td class="cell100 column2">Boxing</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">10</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="1">
+                  <td class="cell100 column1">2</td>
+                  <td class="cell100 column2">Yoga</td>
+                  <td class="cell100 column3">2</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">15</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="2">
+                  <td class="cell100 column1">3</td>
+                  <td class="cell100 column2">Gym</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">10</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="3">
+                  <td class="cell100 column1">4</td>
+                  <td class="cell100 column2">Yoga</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">15</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="4">
+                  <td class="cell100 column1">5</td>
+                  <td class="cell100 column2">Yoga</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">10</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="5">
+                  <td class="cell100 column1">6</td>
+                  <td class="cell100 column2">Dance</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">20</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="6">
+                  <td class="cell100 column1">7</td>
+                  <td class="cell100 column2">Gym</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">10</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="7">
+                  <td class="cell100 column1">8</td>
+                  <td class="cell100 column2">Gym</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">10</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="8">
+                  <td class="cell100 column1">9</td>
+                  <td class="cell100 column2">Yoga</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">15</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="9">
+                  <td class="cell100 column1">10</td>
+                  <td class="cell100 column2">Yoga</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">20</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="10">
+                  <td class="cell100 column1">Virtual Cycle</td>
+                  <td class="cell100 column2">Gym</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">20</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="11">
+                  <td class="cell100 column1">Like a butterfly</td>
+                  <td class="cell100 column2">Boxing</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">10</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="12">
+                  <td class="cell100 column1">Mind & Body</td>
+                  <td class="cell100 column2">Yoga</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">15</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="13">
+                  <td class="cell100 column1">Crit Cardio</td>
+                  <td class="cell100 column2">Gym</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">10</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="14">
+                  <td class="cell100 column1">Wheel Pose Full Posture</td>
+                  <td class="cell100 column2">Yoga</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">15</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="15">
+                  <td class="cell100 column1">Playful Dancer's Flow</td>
+                  <td class="cell100 column2">Yoga</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">10</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="16">
+                  <td class="cell100 column1">Zumba Dance</td>
+                  <td class="cell100 column2">Dance</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">20</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="17">
+                  <td class="cell100 column1">Cardio Blast</td>
+                  <td class="cell100 column2">Gym</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">10</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="18">
+                  <td class="cell100 column1">Pilates Reformer</td>
+                  <td class="cell100 column2">Gym</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">10</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="19">
+                  <td class="cell100 column1">Supple Spine and Shoulders</td>
+                  <td class="cell100 column2">Yoga</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">15</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="20">
+                  <td class="cell100 column1">Yoga for Divas</td>
+                  <td class="cell100 column2">Yoga</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">20</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="21">
+                  <td class="cell100 column1">Virtual Cycle</td>
+                  <td class="cell100 column2">Gym</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">20</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                
+              </tbody>
+            </table>
+          </div>
+          
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        
+
+            <table class="table">
+              <thead bgcolor="#cccccc">
+                <tr class="row100 head">
+                  <th class="cell100 column1">Order ID</th>
+                  <th class="cell100 column2">รายการ</th>
+                  <th class="cell100 column3">โต๊ะ</th>
+                  <th class="cell100 column4">จำนวน</th>
+                  <th class="cell100 column5">เวลา</th>
+                  <th class="cell100 column6">Set</th>
+                </tr>
+              </thead>
+            </table>
+
+          <div class="table100-body js-pscroll">
+            <table class="table" id="table2">
+              <tbody>
+                <tr class="row100 body" tabindex="100">
+                  <td class="cell100 column1">Like a butterfly</td>
+                  <td class="cell100 column2">Boxing</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">10</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="101">
+                  <td class="cell100 column1">Mind & Body</td>
+                  <td class="cell100 column2">Yoga</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">15</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="102">
+                  <td class="cell100 column1">Crit Cardio</td>
+                  <td class="cell100 column2">Gym</td>
+                  <td class="cell100 column3">2</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">10</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="103">
+                  <td class="cell100 column1">Wheel Pose Full Posture</td>
+                  <td class="cell100 column2">Yoga</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">15</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="104">
+                  <td class="cell100 column1">Playful Dancer's Flow</td>
+                  <td class="cell100 column2">Yoga</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">10</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="105">
+                  <td class="cell100 column1">Zumba Dance</td>
+                  <td class="cell100 column2">Dance</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">20</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="106">
+                  <td class="cell100 column1">Cardio Blast</td>
+                  <td class="cell100 column2">Gym</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">10</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="107">
+                  <td class="cell100 column1">Pilates Reformer</td>
+                  <td class="cell100 column2">Gym</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">10</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="108">
+                  <td class="cell100 column1">Supple Spine and Shoulders</td>
+                  <td class="cell100 column2">Yoga</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">15</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="109">
+                  <td class="cell100 column1">Yoga for Divas</td>
+                  <td class="cell100 column2">Yoga</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">20</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="110">
+                  <td class="cell100 column1">Virtual Cycle</td>
+                  <td class="cell100 column2">Gym</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">20</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="111">
+                  <td class="cell100 column1">Like a butterfly</td>
+                  <td class="cell100 column2">Boxing</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">10</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="112">
+                  <td class="cell100 column1">Mind & Body</td>
+                  <td class="cell100 column2">Yoga</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">15</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="113">
+                  <td class="cell100 column1">Crit Cardio</td>
+                  <td class="cell100 column2">Gym</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">10</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="114">
+                  <td class="cell100 column1">Wheel Pose Full Posture</td>
+                  <td class="cell100 column2">Yoga</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">15</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="115">
+                  <td class="cell100 column1">Playful Dancer's Flow</td>
+                  <td class="cell100 column2">Yoga</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">10</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="116">
+                  <td class="cell100 column1">Zumba Dance</td>
+                  <td class="cell100 column2">Dance</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">20</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="117">
+                  <td class="cell100 column1">Cardio Blast</td>
+                  <td class="cell100 column2">Gym</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">10</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="118">
+                  <td class="cell100 column1">Pilates Reformer</td>
+                  <td class="cell100 column2">Gym</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">10</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="119">
+                  <td class="cell100 column1">Supple Spine and Shoulders</td>
+                  <td class="cell100 column2">Yoga</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">15</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="120">
+                  <td class="cell100 column1">Yoga for Divas</td>
+                  <td class="cell100 column2">Yoga</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">20</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                <tr class="row100 body" tabindex="121">
+                  <td class="cell100 column1">Virtual Cycle</td>
+                  <td class="cell100 column2">Gym</td>
+                  <td class="cell100 column3">1</td>
+                  <td class="cell100 column4">1</td>
+                  <td class="cell100 column5">20</td>
+                  <td class="cell100 column6">no</td>
+                </tr>
+
+                
+              </tbody>
+            </table>
+          </div>
+        
+    
+    </div>
+  </div>
+
+
+<!--===============================================================================================-->  
+  <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+  <script src="vendor/bootstrap/js/popper.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+  <script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+  <script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+  <script>
+    var idx = 0;
+    var pre_idx = 0;
+
+    $('.js-pscroll').each(function(){
+        var ps = new PerfectScrollbar(this);
+
+        $(window).on('resize', function(){
+          ps.update();
+        })
+    });
+      
+    $(document).ready(function() {
+
+        $("tr[tabindex=0]").focus();    
+    });
+
+    var x = document.getElementById("table1").getElementsByTagName("tr");
+    var y = document.getElementById("table2").getElementsByTagName("tr");
+    var id = "";
+
+    var socket = io.connect('/');
+    socket.on('index', function(data){
+
+        idx =  data;
+        console.log("index",idx);
+
+        $("tr[tabindex="+idx+"]").focus(); 
+
+        if(idx < 100)
+        {
+          x[idx].style.backgroundColor = "yellow";
+          id = x[idx].cells[0].innerHTML;
+        }
+        else
+        {
+          y[idx-100].style.backgroundColor = "yellow";
+          id = y[idx-100].cells[0].innerHTML;
+        }
+          
+        socket.emit('id', id);
+        console.log("id: ",id);
+
+    })
+
+    socket.on('pr_index', function(data){
+
+        pre_idx =  data;
+        console.log("pr ",pre_idx);
+
+        if(pre_idx !=idx)
+        {
+
+          if(pre_idx < 100)
+          {
+            x[pre_idx].style.backgroundColor = "white";
+          }
+          else
+          {
+            
+            y[pre_idx-100].style.backgroundColor = "white";
+          }
+        }
+        
+    })
+
+    let m_second = 0;
+
+    function Update_time()
+    {
+        // Get today's date and time
+        let now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        
+
+        // m_second = now.getSeconds();
+
+        let x_i;
+        let y_i;
+
+        let x_ln = document.getElementById("table1").rows.length; 
+        let y_ln = document.getElementById("table2").rows.length;
+ 
+        for (x_i = 0; x_i < x_ln; x_i++) 
+        {
+          let countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();
+          let count_x = countDownDate - now;
+          let minutes = Math.floor((count_x % (1000 * 60 * 60)) / (1000 * 60));
+          let seconds = Math.floor((count_x % (1000 * 60)) / 1000);
+
+          x[x_i].cells[4].innerHTML = minutes+':'+seconds;
+
+          if(seconds < 30){ x[x_i].cells[4].style.backgroundColor = "red"; }
+          else{ x[x_i].cells[4].style.backgroundColor = "white"; }
+
+        }
+        for (y_i = 0; y_i < y_ln; y_i++) 
+        {
+
+          let countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();
+          let count_y = countDownDate - now;
+          let minutes = Math.floor((count_y % (1000 * 60 * 60)) / (1000 * 60));
+          let seconds = Math.floor((count_y % (1000 * 60)) / 1000);
+
+          y[y_i].cells[4].innerHTML = minutes+':'+seconds;
+
+          if(seconds < 30){ y[y_i].cells[4].style.backgroundColor = "red"; }
+          else{ y[y_i].cells[4].style.backgroundColor = "white"; }
+
+        }
+        
+
+    }
+    setInterval(Update_time, 1000);
+
+        
+    
+  </script>
+<!--===============================================================================================-->
+  <script src="js/main.js"></script>
+
+</body>
+</html>
